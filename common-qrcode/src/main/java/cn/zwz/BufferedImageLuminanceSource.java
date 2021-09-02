@@ -1,4 +1,4 @@
-package as.zwz;
+package cn.zwz;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
@@ -27,7 +27,7 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
 		for (int y = top; y < top + height; y++) {
 			for (int x = left; x < left + width; x++) {
 				if ((image.getRGB(x, y) & 0xFF000000) == 0) {
-					image.setRGB(x, y, 0xFFFFFFFF); // = white
+					image.setRGB(x, y, 0xFFFFFFFF);
 				}
 			}
 		}
@@ -38,6 +38,7 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
 		this.top = top;
 	}
  
+	@Override
 	public byte[] getRow(int y, byte[] row) {
 		if (y < 0 || y >= getHeight()) {
 			throw new IllegalArgumentException("Requested row is outside the image: " + y);
@@ -50,6 +51,7 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
 		return row;
 	}
  
+	@Override
 	public byte[] getMatrix() {
 		int width = getWidth();
 		int height = getHeight();
@@ -59,18 +61,22 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
 		return matrix;
 	}
  
+	@Override
 	public boolean isCropSupported() {
 		return true;
 	}
  
+	@Override
 	public LuminanceSource crop(int left, int top, int width, int height) {
 		return new BufferedImageLuminanceSource(image, this.left + left, this.top + top, width, height);
 	}
  
+	@Override
 	public boolean isRotateSupported() {
 		return true;
 	}
  
+	@Override
 	public LuminanceSource rotateCounterClockwise() {
 		int sourceWidth = image.getWidth();
 		int sourceHeight = image.getHeight();

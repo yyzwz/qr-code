@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="QR-Code" />
+        <module name="font-qrcode" />
+        <module name="common-qrcode" />
       </profile>
     </annotationProcessing>
   </component>

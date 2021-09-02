@@ -1,66 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="764b2d3f-10c8-4be0-ad8a-55d3ce55474a" name="Default Changelist" comment="" />
+    <list default="true" id="db63fb37-4e33-4ba2-9b19-52bc6acdfae7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../maven" />
+        <option name="userSettingsFile" value="C:\java\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1tgqL7nWThVHelEDkkUV0azsVCZ" />
+  <component name="ProjectId" id="1xZYpup6YmbP3rCfmpwJsHk2KQw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/font-qrcode/src/main/java" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15527344" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\java\temp\QR-Code\src\main\resources" />
-      <recent name="C:\java\temp\QR-Code\src\main\java\as\zwz" />
+      <recent name="C:\java\temp\qr-codes\font-qrcode\src\main\java" />
+      <recent name="C:\java\temp\qr-codes\font-qrcode\src\main\resources" />
+      <recent name="C:\java\temp\qr-codes\common-qrcode\src\test\java\cn\zwz" />
+      <recent name="C:\java\temp\qr-codes\common-qrcode\src\main\resources" />
+      <recent name="C:\java\temp\qr-codes\common-qrcode\src\main\java\cn\zwz" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cn.zwz" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.zwz" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestQrCode.testQRCodeUtils">
-    <configuration name="TestQrCode.testQRCodeUtils" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="QR-Code" />
+  <component name="RunManager" selected="JUnit.TestQrCode.testQRCodeUtils (1)">
+    <configuration name="TestQrCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="font-qrcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="as.zwz.*" />
+          <option name="PATTERN" value="cn.zwz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="as.zwz" />
-      <option name="MAIN_CLASS_NAME" value="as.zwz.TestQrCode" />
+      <option name="PACKAGE_NAME" value="cn.zwz" />
+      <option name="MAIN_CLASS_NAME" value="cn.zwz.TestQrCode" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestQrCode.testQRCodeUtils (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="font-qrcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.zwz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.zwz" />
+      <option name="MAIN_CLASS_NAME" value="cn.zwz.TestQrCode" />
       <option name="METHOD_NAME" value="testQRCodeUtils" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestQrCode.testQRCodeUtils2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="QR-Code" />
+    <configuration name="TestQrCode.testQRCodeUtils" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="common-qrcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="as.zwz.*" />
+          <option name="PATTERN" value="cn.zwz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="as.zwz" />
-      <option name="MAIN_CLASS_NAME" value="as.zwz.TestQrCode" />
-      <option name="METHOD_NAME" value="testQRCodeUtils2" />
+      <option name="PACKAGE_NAME" value="cn.zwz" />
+      <option name="MAIN_CLASS_NAME" value="cn.zwz.TestQrCode" />
+      <option name="METHOD_NAME" value="testQRCodeUtils" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -68,65 +98,25 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestQrCode.testQRCodeUtils (1)" />
+        <item itemvalue="JUnit.TestQrCode" />
         <item itemvalue="JUnit.TestQrCode.testQRCodeUtils" />
-        <item itemvalue="JUnit.TestQrCode.testQRCodeUtils2" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="764b2d3f-10c8-4be0-ad8a-55d3ce55474a" name="Default Changelist" comment="" />
-      <created>1623201020565</created>
+      <changelist id="db63fb37-4e33-4ba2-9b19-52bc6acdfae7" name="Changes" comment="" />
+      <created>1630564265050</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1623201020565</updated>
-      <workItem from="1623201021823" duration="1470000" />
-      <workItem from="1623221655470" duration="333000" />
-      <workItem from="1623224815427" duration="140000" />
-      <workItem from="1623224988430" duration="698000" />
-      <workItem from="1623227224440" duration="244000" />
-      <workItem from="1623641440893" duration="639000" />
+      <updated>1630564265050</updated>
+      <workItem from="1630564266287" duration="718000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="2438" height="295" key="GridCell.Tab.0.bottom" timestamp="1623642138599">
-      <screen x="62" y="0" width="2498" height="1080" />
-    </state>
-    <state width="2438" height="295" key="GridCell.Tab.0.bottom/62.0.2498.1080@62.0.2498.1080" timestamp="1623642138599" />
-    <state width="2438" height="295" key="GridCell.Tab.0.center" timestamp="1623642138598">
-      <screen x="62" y="0" width="2498" height="1080" />
-    </state>
-    <state width="2438" height="295" key="GridCell.Tab.0.center/62.0.2498.1080@62.0.2498.1080" timestamp="1623642138598" />
-    <state width="2438" height="295" key="GridCell.Tab.0.left" timestamp="1623642138596">
-      <screen x="62" y="0" width="2498" height="1080" />
-    </state>
-    <state width="2438" height="295" key="GridCell.Tab.0.left/62.0.2498.1080@62.0.2498.1080" timestamp="1623642138596" />
-    <state width="2438" height="295" key="GridCell.Tab.0.right" timestamp="1623642138599">
-      <screen x="62" y="0" width="2498" height="1080" />
-    </state>
-    <state width="2438" height="295" key="GridCell.Tab.0.right/62.0.2498.1080@62.0.2498.1080" timestamp="1623642138599" />
-    <state x="812" y="182" key="SettingsEditor" timestamp="1623227466562">
-      <screen x="62" y="0" width="2498" height="1080" />
-    </state>
-    <state x="812" y="182" key="SettingsEditor/62.0.2498.1080@62.0.2498.1080" timestamp="1623227466562" />
+    <option name="version" value="3" />
   </component>
 </project>

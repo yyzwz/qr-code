@@ -1,4 +1,4 @@
-package as.zwz;
+package cn.zwz;
 
 import org.junit.Test;
 

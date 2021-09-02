@@ -1,33 +1,28 @@
-package as.zwz;
+package cn.zwz;
 
-import java.awt.BasicStroke;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Shape;
+import com.google.zxing.*;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import sun.font.FontDesignMetrics;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.LineMetrics;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.OutputStream;
 import java.util.Hashtable;
-import java.util.Random;
-import javax.imageio.ImageIO;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.Result;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
- 
+
 public class QRCodeUtil {
 	private static final String CHARSET = "utf-8";
 	private static final String FORMAT_NAME = "PNG";
 	// 二维码尺寸
 	private static final int QRCODE_SIZE = 300;
+	// 二维码尺寸
+	private static final int QRCODE_SIZE_HEIGHT = 420;
 	// LOGO宽度
 	private static final int WIDTH = 60;
 	// LOGO高度
@@ -39,7 +34,7 @@ public class QRCodeUtil {
 		hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
 		hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
 		hints.put(EncodeHintType.MARGIN, 1);
-		BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, QRCODE_SIZE, QRCODE_SIZE,
+		BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, QRCODE_SIZE, QRCODE_SIZE_HEIGHT, // 修改二维码底部高度
 				hints);
 		int width = bitMatrix.getWidth();
 		int height = bitMatrix.getHeight();
@@ -54,7 +49,68 @@ public class QRCodeUtil {
 		}
 		// 插入图片
 		QRCodeUtil.insertImage(image, imgPath, needCompress);
+		// 插入底部文字
+		QRCodeUtil.addFontImage(image, "1.进入时请主动出示此码和健康码",3);
+		QRCodeUtil.addFontImage(image, "2.请自觉接受测温，佩戴口罩",2);
+		QRCodeUtil.addFontImage(image, "3.此码当日有效，过期请重新预约",1);
+		QRCodeUtil.addFontUp(image, "访客码");
 		return image;
+	}
+
+	/**
+	 * 添加 底部图片文字
+	 *
+	 * @param source      图片源
+	 * @param declareText 文字本文
+	 */
+	private static void addFontImage(BufferedImage source, String declareText,int step) {
+		BufferedImage textImage = strToImage(declareText, QRCODE_SIZE, 20,16);
+		Graphics2D graph = source.createGraphics();
+		//开启文字抗锯齿
+		graph.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+		int width = textImage.getWidth(null);
+		int height = textImage.getHeight(null);
+
+		Image src = textImage;
+		graph.drawImage(src, 0, QRCODE_SIZE_HEIGHT - (20 * step) - 10, width, height, null);
+		graph.dispose();
+	}
+
+	private static void addFontUp(BufferedImage source, String declareText) {
+		BufferedImage textImage = strToImage(declareText, QRCODE_SIZE, 30,24);
+		Graphics2D graph = source.createGraphics();
+		//开启文字抗锯齿
+		graph.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+		int width = textImage.getWidth(null);
+		int height = textImage.getHeight(null);
+
+		Image src = textImage;
+		graph.drawImage(src, 0, 30, width, height, null);
+		graph.dispose();
+	}
+
+	@SuppressWarnings("restriction")
+	private static BufferedImage strToImage(String str, int width, int height,int fontSize) {
+		BufferedImage textImage = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+		Graphics2D g2 = (Graphics2D)textImage.getGraphics();
+		//开启文字抗锯齿
+		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		g2.setBackground(Color.WHITE);
+		g2.clearRect(0, 0, width, height);
+		g2.setPaint(Color.BLACK);
+		FontRenderContext context = g2.getFontRenderContext();
+		Font font = new Font("微软雅黑", Font.BOLD, fontSize);
+		g2.setFont(font);
+		LineMetrics lineMetrics = font.getLineMetrics(str, context);
+		FontMetrics fontMetrics = FontDesignMetrics.getMetrics(font);
+		float offset = (width - fontMetrics.stringWidth(str)) / 2;
+		float y = (height + lineMetrics.getAscent() - lineMetrics.getDescent() - lineMetrics.getLeading()) / 2;
+
+		g2.drawString(str, (int)offset, (int)y);
+
+		return textImage;
 	}
  
 	private static void insertImage(BufferedImage source, String imgPath, boolean needCompress) throws Exception {
@@ -83,7 +139,7 @@ public class QRCodeUtil {
 		// 插入LOGO
 		Graphics2D graph = source.createGraphics();
 		int x = (QRCODE_SIZE - width) / 2;
-		int y = (QRCODE_SIZE - height) / 2;
+		int y = (QRCODE_SIZE - height) / 2 + 60;
 		graph.drawImage(src, x, y, width, height, null);
 		Shape shape = new RoundRectangle2D.Float(x, y, width, width, 6, 6);
 		graph.setStroke(new BasicStroke(3f));
